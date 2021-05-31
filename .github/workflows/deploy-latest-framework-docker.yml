@@ -1,12 +1,14 @@
-name: deploy-framework-docker
+name: deploy-latest-framework-docker
 
 on:
   push:
     tags:
-      - v*
+      - master
+  schedule:
+    - cron: '0 2 * * *'
 jobs:
   build:
-    runs-on: self-hosted 
+    runs-on: self-hosted
     steps:
       - name: docker login
         run: |
